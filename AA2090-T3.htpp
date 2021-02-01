@@ -1,0 +1,31 @@
+\* this is a comment
+
+*ODB, name={AA2090-T3}
+
+\*
+
+*DATA
+
+*ENDDATA
+
+\*
+
+*YFUNC
+
+**YIELDLOCUS, yldname={yld2000-2d}, shear={0.0}
+
+**ANISOTROPY, yldname={yld2000-2d}
+
+*ENDYFUNC
+
+\*
+
+*PLOT
+
+**YIELDLOCUS, yldname={yld2000-2d}, shear={0.0}
+
+**ANISOTROPY, yldname={yld2000-2d}
+
+*ENDPLOT
+
+\*
