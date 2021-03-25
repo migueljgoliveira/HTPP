@@ -21,6 +21,7 @@ from htpp_data_rotation import htpp_data_rotation
 from htpp_data_triaxiality_lode import htpp_data_triaxiality_lode
 from htpp_data_schmitt import htpp_data_schmitt
 from htpp_data_force import htpp_data_force
+from htpp_data_evol import htpp_data_evol
 
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------- MAIN
@@ -78,6 +79,8 @@ def htpp_data():
                 all_data.append(line)
             elif '**FORCE' in line[0].upper():
                 all_data.append(line)
+            elif '**EVOL' in line[0].upper():
+                all_data.append(line)
 
         # ------------------------------------ OPEN ODB AND CREATE OUTPUT FOLDER
         if len(all_data) > 0:
@@ -123,6 +126,8 @@ def htpp_data():
                     htpp_data_schmitt(odb,ioi,option,section,name)
                 elif opt == '**FORCE':
                     htpp_data_force(odb,ioi,option,section,name)
+                elif opt == '**EVOL':
+                    htpp_data_evol(odb,ioi,option,section,name)
 
                 per = 100.0 * float(st * n) / float(tlen)
                 bars = st * n

@@ -6,6 +6,19 @@
 
 *DATA
 
+
+**PEEQ, step={1}, frame={1;2}, elemSet={ROI}
+
+**STRAIN, step={1}, frame={1}, elemSet={ROI}
+
+**STRESS, step={1}, frame={1}, elemSet={ROI}
+
+**ROTATION, step={1}, frame={1}, elemSet={ROI}
+
+**TRIAXIALITYLODE, step={1}, frame={1}, elemSet={ROI}
+
+**EVOL, step={1}, frame={1}, elemSet={ROI}
+
 *ENDDATA
 
 \*
