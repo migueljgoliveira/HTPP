@@ -1,12 +1,12 @@
-# ------------------------------------------------------------------------------
-# -------------------------------------------------------------- IMPORT PACKAGES
+# -----------------------------------------------------------------------------
+# ------------------------------------------------------------- IMPORT PACKAGES
 from odbAccess import *
 from abaqusConstants import *
 import numpy as np
 import os
 from textRepr import prettyPrint
 
-# --------------------------------------------------------------- STRAIN OPTIONS
+# -------------------------------------------------------------- STRAIN OPTIONS
 def htpp_data_strain_option(odb,option):
 	step = '\n'.join(s for s in option if 'step=' in s).replace(",", "").replace("\n", "")[6:-1].strip().split(';')
 	step = [int(s) for s in step]
@@ -16,7 +16,7 @@ def htpp_data_strain_option(odb,option):
 
 	return step,frame,elem_set
 
-# ------------------------------------------------------------------- STRAIN AUX
+# ------------------------------------------------------------------ STRAIN AUX
 def htpp_data_strain_aux(vals):
 	E1 = np.empty(len(vals))
 	E2 = np.empty(len(vals))
@@ -42,9 +42,9 @@ def htpp_data_strain_aux(vals):
 
 	return E1,E2
 
-# ------------------------------------------------------------------------------
-# ----------------------------------------------------------------------- STRAIN
-# ------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# ---------------------------------------------------------------------- STRAIN
+# -----------------------------------------------------------------------------
 def htpp_data_strain(odb,ioi,option,section,odb_name):
 	step,frame,elem_set = htpp_data_strain_option(odb,option)
 
@@ -95,7 +95,7 @@ def htpp_data_strain(odb,ioi,option,section,odb_name):
 						pass
 	odb.save()
 
-	# --------------------------------------------------------------- WRITE DATA
+	# -------------------------------------------------------------- WRITE DATA
 	pos = CENTROID
 	for l in step:
 		sT = odb.steps[step_names[l-1]]
@@ -117,4 +117,4 @@ def htpp_data_strain(odb,ioi,option,section,odb_name):
 						for i in range(len(vals)):
 							file.write('%f , %f \n' %(E1[i],E2[i]))
 
-# ------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
